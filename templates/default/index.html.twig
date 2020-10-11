@@ -12,9 +12,9 @@
     <h1>Hello {{ controller_name }}! ✅</h1>
 
     <ul>
-        {% for name in names %}
+        {% for user in users %}
             <li>
-                <p>{{ name }}</p>
+                <p>{{ user.name }}</p>
             </li>
         {% endfor %}
     </ul>
