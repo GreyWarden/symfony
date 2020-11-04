@@ -3,11 +3,14 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use Psr\Log\LoggerInterface;
+
 final class GiftService
 {
     private array $gifts;
+    private LoggerInterface $logger;
 
-    public function __construct()
+    public function __construct(LoggerInterface $logger)
     {
         $this->gifts =  [
             'flowers',
@@ -23,6 +26,8 @@ final class GiftService
             'piano',
             'money'
         ];
+        $this->logger = $logger;
+        $this->logger->info('Gifts were randomized');
     }
 
     public function getGifts(): array
@@ -35,6 +40,4 @@ final class GiftService
         shuffle($this->gifts);
         return $this->gifts;
     }
-
-
 }
