@@ -1,0 +1,26 @@
+{
+  "name": "symfony-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prod": "encore production",
+    "watch": "encore dev --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GreyWarden/symfony.git"
+  },
+  "author": "CGDevs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GreyWarden/symfony/issues"
+  },
+  "homepage": "https://github.com/GreyWarden/symfony#readme",
+  "dependencies": {
+    "@symfony/webpack-encore": "^0.31.0",
+    "jquery": "^3.5.1",
+    "webpack-notifier": "^1.8.0"
+  }
+}
