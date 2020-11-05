@@ -10,7 +10,7 @@
 {% block body %}
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1 id="title">Hello {{ controller_name }}! ✅</h1>
 
     <ul>
         {% for user in users %}
@@ -27,4 +27,14 @@
         {% endfor %}
     {% endfor %}
 </div>
+    {% block javascripts %}
+        <script src="{{asset('build/js/custom.js')}}"></script>
+        <script>
+            $(document).ready(function () {
+                $('#title').click(function () {
+                    alert('Hello there!')
+                })
+            })
+        </script>
+    {% endblock %}
 {% endblock %}
