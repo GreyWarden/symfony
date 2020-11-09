@@ -29,14 +29,6 @@ class DefaultController extends AbstractController
     {
         $users = $this->getDoctrine()->getRepository(User::class)->findAll();
 
-        $this->addFlash('notice', 'Cosas hechas!');
-        $this->addFlash('warning', 'Cosas no hechas!');
-        $this->session->set('name', 'hello there');
-
-        if ($this->session->has('name')) {
-            $this->logger->info($this->session->get('name'));
-        }
-
         return $this->render('default/index.html.twig', [
             'controller_name' => 'General Controlly',
             'users' => $users,
