@@ -14,9 +14,23 @@
 
     <ul>
         {% for user in users %}
-            <li>
-                <p>{{ user.name }} - you won {{ gifts[loop.index0] }}</p>
-            </li>
+            <ul>
+                <li>
+                    <h3>Nombre: {{ user.name }}</h3>
+                    <h4>Regalo:</h4> <p>{{ gifts[loop.index0] }}</p>
+                    <h4>Dirección:</h4> <p>{{ user.address.street }} - {{ user.address.number }}</p>
+                    <h4>Videos: </h4>
+                    <ul>
+
+                        {% for video in user.videos %}
+                            <li>
+                                <p>Título: {{ video.title }}</p>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </li>
+            </ul>
         {% endfor %}
     </ul>
 
