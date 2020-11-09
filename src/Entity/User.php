@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use DateTime;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -39,18 +40,11 @@ class User
     /**
      * @ORM\Column(type="datetime")
      */
-    private DateTime $created_at;
+    private DateTimeInterface $created_at;
 
     public function __construct()
     {
         $this->videos = new ArrayCollection();
-    }
-
-    /**
-     * @ORM\PrePersist()
-     */
-    public function setCreatedAt(): void
-    {
         $this->created_at = new DateTime();
     }
     
@@ -113,7 +107,7 @@ class User
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getCreatedAt(): ?DateTimeInterface
     {
         return $this->created_at;
     }

@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AddressRepository;
+use DateTime;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -26,6 +28,16 @@ class Address
      * @ORM\Column(type="integer")
      */
     private ?int $number;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private DateTimeInterface $created_at;
+
+    public function __construct()
+    {
+        $this->created_at = new DateTime();
+    }
 
     public function getId(): ?int
     {
@@ -54,5 +66,10 @@ class Address
         $this->number = $number;
 
         return $this;
+    }
+
+    public function getCreatedAt(): ?DateTimeInterface
+    {
+        return $this->created_at;
     }
 }

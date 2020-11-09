@@ -16,8 +16,8 @@ class VideosFixture extends Fixture
             for ($index = 1; $index <= 5; $index++) {
                 $video = new Video();
                 $video->setTitle($this->generateRandomString());
-                $user->addVideo($video);
                 $manager->persist($video);
+                $user->addVideo($video);
             }
         }
 
