@@ -9,12 +9,14 @@ use Doctrine\Persistence\ObjectManager;
 
 class UserAddressFixture extends Fixture
 {
+    private const MAX_NUMBER = 999;
+
     public function load(ObjectManager $manager)
     {
         $users = $manager->getRepository(User::class)->findAll();
         foreach ($users as $user) {
             $address = new Address();
-            $address->setNumber(rand(1, PHP_INT_MAX));
+            $address->setNumber(rand(1, self::MAX_NUMBER));
             $address->setStreet('Calle Falsa');
             $manager->persist($address);
             $user->setAddress($address);
