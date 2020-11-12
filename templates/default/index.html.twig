@@ -18,17 +18,39 @@
                 <li>
                     <h3>Nombre: {{ user.name }}</h3>
                     <h4>Regalo:</h4> <p>{{ gifts[loop.index0] }}</p>
-                    <h4>Dirección:</h4> <p>{{ user.address.street }} - {{ user.address.number }}</p>
-                    <h4>Videos: </h4>
-                    <ul>
-
-                        {% for video in user.videos %}
-                            <li>
-                                <p>Título: {{ video.title }}</p>
-                            </li>
-                        {% endfor %}
-
-                    </ul>
+                    {% if user.address %}
+                        <h4>Dirección:</h4> <p>{{ user.address.street }} - {{ user.address.number }}</p>
+                    {% endif %}
+                    {% if user.videos.count %}
+                        <h4>Videos: </h4>
+                        <ul>
+                            {% for video in user.videos %}
+                                <li>
+                                    <p>Título: {{ video.title }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if user.followed.count %}
+                        <h4>Seguidos: </h4>
+                        <ul>
+                            {% for followed in user.followed %}
+                                <li>
+                                    <p>Nombre: {{ followed.name }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if user.following.count %}
+                        <h4>Siguiendo: </h4>
+                        <ul>
+                            {% for following in user.following %}
+                                <li>
+                                    <p>Nombre: {{ following.name }}</p>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </li>
             </ul>
         {% endfor %}
