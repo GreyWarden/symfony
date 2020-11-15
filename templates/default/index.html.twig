@@ -21,16 +21,6 @@
                     {% if user.address %}
                         <h4>Dirección:</h4> <p>{{ user.address.street }} - {{ user.address.number }}</p>
                     {% endif %}
-                    {% if user.videos.count %}
-                        <h4>Videos: </h4>
-                        <ul>
-                            {% for video in user.videos %}
-                                <li>
-                                    <p>Título: {{ video.title }}</p>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
                     {% if user.followed.count %}
                         <h4>Seguidos: </h4>
                         <ul>
