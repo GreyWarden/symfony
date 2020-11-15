@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Service\GiftService;
+use App\Service\MyService;
 use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -14,12 +15,18 @@ class DefaultController extends AbstractController
     private GiftService $giftService;
     private SessionInterface $session;
     private LoggerInterface $logger;
+    private MyService $service;
 
-    public function __construct(GiftService $giftService, SessionInterface $session, LoggerInterface $logger)
-    {
+    public function __construct(
+        GiftService $giftService,
+        SessionInterface $session,
+        LoggerInterface $logger,
+        MyService $service
+    ) {
         $this->giftService = $giftService;
         $this->session = $session;
         $this->logger = $logger;
+        $this->service = $service;
     }
 
     /**
