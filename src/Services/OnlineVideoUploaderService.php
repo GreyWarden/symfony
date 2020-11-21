@@ -5,5 +5,8 @@ namespace App\Services;
 
 final class OnlineVideoUploaderService implements VideoUploaderServiceInterface
 {
-
+    public function __construct()
+    {
+        dump('Desde OnlineVideoUploaderService');
+    }
 }
