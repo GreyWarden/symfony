@@ -7,6 +7,7 @@ use App\Events\DTO\VideoCreated;
 use App\Events\VideoCreatedEvent;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 final class VideoCreatorController extends AbstractController

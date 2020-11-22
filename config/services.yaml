@@ -33,6 +33,7 @@ services:
 
     App\Services\VideoUploaderServiceInterface: '@App\Services\LocalVideoUploaderService'
 
-    App\Listeners\VideoCreatedListener:
-        tags:
-            - { name: kernel.event_listener, event: video.created.event }
+    # Ejemplo de listener
+    # App\Listeners\VideoCreatedListener:
+    #    tags:
+    #        - { name: kernel.event_listener, event: video.created.event }

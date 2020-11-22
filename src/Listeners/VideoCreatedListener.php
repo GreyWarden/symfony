@@ -10,6 +10,7 @@ final class VideoCreatedListener
 {
     public function onVideoCreatedEvent(VideoCreatedEvent $event)
     {
+        dump('Desde el listener');
         dump('Id: ' . $event->getId());
         dump('Title: ' . $event->getTitle());
         dump('Duration: ' . $event->getDuration());
