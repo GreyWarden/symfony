@@ -14,7 +14,7 @@ services:
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
-    App\: 
+    App\:
         resource: '../src/'
         exclude:
             - '../src/DependencyInjection/'
@@ -33,6 +33,6 @@ services:
 
     App\Services\VideoUploaderServiceInterface: '@App\Services\LocalVideoUploaderService'
 
-    App\Listeners\KernelResponseListener:
+    App\Listeners\VideoCreatedListener:
         tags:
-            - { name: kernel.event_listener, event: kernel.response }
+            - { name: kernel.event_listener, event: video.created.event }
